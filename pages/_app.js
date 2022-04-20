@@ -1,7 +1,23 @@
-import '../styles/globals.css'
+import Layout from "../components/Layout";
+import "../styles/globals.css";
+import { createClient } from "contentful";
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+MyApp.getInitialProps = async () => {
+  const client = createClient({
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCESS_KEY,
+  });
+
+  const res = await client.getEntries({ content_type: "page" });
+  return { pages: res.items };
+};
+
+function MyApp({ Component, pageProps, pages }) {
+  return (
+    <Layout pages={pages}>
+      <Component {...pageProps} />
+    </Layout>
+  );
 }
 
-export default MyApp
+export default MyApp;
