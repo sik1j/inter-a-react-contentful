@@ -10,51 +10,27 @@ function Teachers() {
       </h3>
       <div className="name-card-grid">
         <div className="name-card">
-          <Image
-            src="https://unsplash.it/200/200"
-            alt=""
-            className="face-img"
-          />
+          <img src="https://unsplash.it/200/200" alt="" className="face-img" />
           <p className="name">Name</p>
         </div>
         <div className="name-card">
-          <Image
-            src="https://unsplash.it/200/200"
-            alt=""
-            className="face-img"
-          />
+          <img src="https://unsplash.it/200/200" alt="" className="face-img" />
           <p className="name">Name</p>
         </div>
         <div className="name-card">
-          <Image
-            src="https://unsplash.it/200/200"
-            alt=""
-            className="face-img"
-          />
+          <img src="https://unsplash.it/200/200" alt="" className="face-img" />
           <p className="name">Name</p>
         </div>
         <div className="name-card">
-          <Image
-            src="https://unsplash.it/200/200"
-            alt=""
-            className="face-img"
-          />
+          <img src="https://unsplash.it/200/200" alt="" className="face-img" />
           <p className="name">Name</p>
         </div>
         <div className="name-card">
-          <Image
-            src="https://unsplash.it/200/200"
-            alt=""
-            className="face-img"
-          />
+          <img src="https://unsplash.it/200/200" alt="" className="face-img" />
           <p className="name">Name</p>
         </div>
         <div className="name-card">
-          <Image
-            src="https://unsplash.it/200/200"
-            alt=""
-            className="face-img"
-          />
+          <img src="https://unsplash.it/200/200" alt="" className="face-img" />
           <p className="name">Name</p>
         </div>
       </div>

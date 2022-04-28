@@ -18,18 +18,27 @@ function Footer() {
         <li className="link4">Resources</li>
       </ul>
       <div className="social-links icons">
-        <a target="_blank" href="https://www.facebook.com/social.intera/">
+        <a
+          target="_blank"
+          href="https://www.facebook.com/social.intera/"
+          rel="noreferrer"
+        >
           <FontAwesomeIcon icon={faFacebookF} />
         </a>
-        <a target="_blank" href="https://www.instagram.com/social_intera/">
+        <a
+          target="_blank"
+          href="https://www.instagram.com/social_intera/"
+          rel="noreferrer"
+        >
           <FontAwesomeIcon icon={faInstagram} />
         </a>
-        <a target="_blank" href="http://www.sd36.bc.ca">
+        <a target="_blank" href="http://www.sd36.bc.ca" rel="noreferrer">
           <FontAwesomeIcon icon={faSchool} />
         </a>
         <a
           target="_blank"
           href="https://www.surreyschools.ca/schools/queene/Pages/default.aspx"
+          rel="noreferrer"
         >
           <FontAwesomeIcon icon={faPaw} />
         </a>
