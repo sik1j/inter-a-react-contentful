@@ -8,7 +8,7 @@ MyApp.getInitialProps = async () => {
     accessToken: process.env.CONTENTFUL_ACCESS_KEY,
   });
 
-  const res = await client.getEntries({ content_type: "page" });
+  const res = await client.getEntries({ content_type: "navPage" });
   return { pages: res.items };
 };
 

@@ -480,6 +480,7 @@ footer {
 
   .hero-landing {
     padding-block: 8rem;
+    min-height: 100vh;
   }
 
   .hero-flex {
@@ -847,23 +848,25 @@ footer {
   /* color: blue */
   position: relative;
   padding-bottom: 1rem;
-  color: #90d136;
+  /* color: #90d136; */
+  color: #61892F;
   /* margin: 2rem 0; */
   margin-bottom: 0rem;
   margin-top: 2rem;
   font-family: var(--ff-righteous);
   font-size: 75px;
-  width: 125%;
-  max-width: 25ch;
+  /* width: 125%; */
+  max-width: none !important;
+  /* max-width: 25ch; */
   letter-spacing: 0.14em;
   transform: scale(0.8);
-  transform-origin: left;
+  transform-origin: center;
   font-weight: 100;
-  text-align: left !important;
+  text-align: center !important;
 }
 
 .doc-h2 {
-  width: 60ch;
+  /* width: 60ch; */
   /* background-color: blue; */
 }
 
@@ -872,12 +875,13 @@ footer {
   font-size: 20px;
   max-width: 60ch;
   transform: scale(0.9);
-  transform-origin: left;
-  color: #61892F !important;
+  transform-origin: center;
+  color: rgba(255, 235, 205, 0.89) !important;
   color: var(--clr-off-black);
   font-weight: 500;
   margin-top: -1rem;
-  padding-bottom: 2rem;
+  padding-bottom: 4rem;
+  text-align: center;
   line-height: 150%;
 }
 
@@ -911,7 +915,7 @@ footer {
   font-size: 16px;
   line-height: 186%;
   letter-spacing: 0.035em;
-  max-width: 60ch;
+  /* max-width: 60ch; */
   /* background-color: blue; */
   /* margin: 0.3rem auto 1rem auto; */
   margin-bottom: 3rem
@@ -921,7 +925,7 @@ footer {
   margin-top: 2rem
 }
 
-.doc-img {
+/* .doc-img {
   padding-right: 20vw;
   margin-bottom: 1rem;
-}
+} */
