@@ -38,7 +38,7 @@ export default function Home({ pages }) {
         <div className="watermark">Today</div>
         <div className="hero-flex">
           <div className="hero-text">
-            <div className="subheading">Tomorrow's Leaders</div>Today
+            <div className="subheading">{"Tomorrow's Leaders"}</div>Today
           </div>
           <div className="btn-hero">
             <div className="hero-paragraph">
