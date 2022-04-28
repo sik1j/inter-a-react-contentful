@@ -1,4 +1,5 @@
 import React from "react";
+import img from "next/image";
 import { createClient } from "contentful";
 import { BLOCKS, MARKS } from "@contentful/rich-text-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
@@ -10,7 +11,7 @@ const client = createClient({
 });
 
 export const getStaticPaths = async () => {
-  const res = await client.getEntries({ content_type: "page" });
+  const res = await client.getEntries({ content_type: "navPage" });
 
   const paths = res.items.map((item) => {
     return {
@@ -25,10 +26,10 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }) => {
-  const res = await client.getEntries({ content_type: "page" });
+  const res = await client.getEntries({ content_type: "navPage" });
 
   const { items } = await client.getEntries({
-    content_type: "page",
+    content_type: "navPage",
     "fields.slug": params.slug,
   });
 
@@ -43,11 +44,12 @@ export const getStaticProps = async ({ params }) => {
 
   return {
     props: { page: items[0] },
+    revalidate: 1,
   };
 };
 
 function page({ page }) {
-  const { title, textContent } = page.fields;
+  const { title, content } = page.fields;
 
   const Bold = ({ children }) => <p className="bold">{children}</p>;
 
@@ -91,6 +93,7 @@ function page({ page }) {
     renderText: (text) => text.replace("!", "?"),
   };
 
+  console.log(page);
   return (
     <div className="text-white">
       <div className="doc-wrapper">
@@ -98,7 +101,7 @@ function page({ page }) {
           <div className="title">
             <div className="doc-title">{title}</div>
           </div>
-          {documentToReactComponents(textContent, options)}
+          {documentToReactComponents(content, options)}
         </div>
       </div>
       <style jsx>
@@ -112,7 +115,11 @@ function page({ page }) {
           }
           .doc-wrapper {
             position: relative;
-            padding-left: 20vw;
+            display: grid;
+            place-content: center;
+          }
+          .center {
+            max-width: 820px;
           }
           .color-size {
             color: #90d136 !important;

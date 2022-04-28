@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { createClient } from "contentful";
@@ -10,17 +11,26 @@ export const getStaticProps = async () => {
     accessToken: process.env.CONTENTFUL_ACCESS_KEY,
   });
 
-  const response = await client.getEntries({ content_type: "page" });
+  const response = await client.getEntries({ content_type: "landingPage" });
 
   return {
     props: { pages: response.items },
+    revalidate: 1,
   };
 };
 
-export default function Home({ pages, setNavLinks }) {
-  // useEffect(() => {
-  //   setNavLinks(pages);
-  // });
+export default function Home({ pages }) {
+  console.log(pages);
+  const {
+    heroSubText,
+    familySect,
+    cpp,
+    fieldTrip,
+    isApplicationTime,
+    peStudioArts,
+    service,
+  } = pages[0].fields;
+  console.log(heroSubText);
 
   return (
     <div>
@@ -32,23 +42,25 @@ export default function Home({ pages, setNavLinks }) {
           </div>
           <div className="btn-hero">
             <div className="hero-paragraph">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
+              {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
               aliquam, purus sit amet luctus venenatis, lectus magna fringilla
-              urna, porttitor rhoncus dolor purus non enim
+              urna, porttitor rhoncus dolor purus non enim */}
+              {heroSubText}
             </div>
             <div className="btn-border">
-              <a
-                className=".btn"
-                to="/apply"
-                style={{
-                  color: "#61892F",
-                  textDecoration: "none",
-                }}
-              >
-                <span className="cursor-pointer hover:text-u-off-white ease-out duration-200">
-                  Apply
-                </span>
-              </a>
+              <Link href={"/apply"}>
+                <a
+                  className=".btn"
+                  style={{
+                    color: "#61892F",
+                    textDecoration: "none",
+                  }}
+                >
+                  <span className="cursor-pointer hover:text-u-off-white ease-out duration-200">
+                    Apply
+                  </span>
+                </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -74,13 +86,14 @@ export default function Home({ pages, setNavLinks }) {
             <div className="subheading">think of us as a</div> Family
           </div>
           <div className="hero-paragraph">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu vel id
+            {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu vel id
             amet purus amet rhoncus, libero accumsan. Nisl nec quis arcu
             pharetra diam amet. Viverra lectus mauris erat cursus lacus. Risus
             morbi pulvinar odio nec. In nisl mattis orci lacus, velit dictum
             etiam est. Nullam proin senectus vitae tortor habitant. Sed posuere
             congue sed ut eget tincidunt enim, tellus. Sollicitudin tincidunt eu
-            fringilla adipiscing urna cras purus, nunc volutpat.
+            fringilla adipiscing urna cras purus, nunc volutpat. */}
+            {familySect}
           </div>
         </div>
         <img
@@ -106,10 +119,11 @@ export default function Home({ pages, setNavLinks }) {
           <div className="card-text">
             <div className="heading">CPP</div>
             <div className="text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
+              {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
               aliquam, purus sit amet luctus venenatis, lectus magna fringilla
               urna, porttitor rhoncus dolor purus non enim praesent elementum
-              facilisis leo, vel{" "}
+              facilisis leo, vel{" "} */}
+              {cpp}
             </div>
           </div>
         </div>
@@ -126,10 +140,11 @@ export default function Home({ pages, setNavLinks }) {
           <div className="card-text">
             <div className="heading">PE & Studio Arts</div>
             <div className="text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
+              {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
               aliquam, purus sit amet luctus venenatis, lectus magna fringilla
               urna, porttitor rhoncus dolor purus non enim praesent elementum
-              facilisis leo, vel{" "}
+              facilisis leo, vel{" "} */}
+              {peStudioArts}
             </div>
           </div>
         </div>
@@ -146,10 +161,11 @@ export default function Home({ pages, setNavLinks }) {
           <div className="card-text">
             <div className="heading">Service</div>
             <div className="text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
+              {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
               aliquam, purus sit amet luctus venenatis, lectus magna fringilla
               urna, porttitor rhoncus dolor purus non enim praesent elementum
-              facilisis leo, vel{" "}
+              facilisis leo, vel{" "} */}
+              {service}
             </div>
           </div>
         </div>
@@ -166,68 +182,12 @@ export default function Home({ pages, setNavLinks }) {
           <div className="card-text">
             <div className="heading">Field Trips</div>
             <div className="text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
+              {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
               aliquam, purus sit amet luctus venenatis, lectus magna fringilla
               urna, porttitor rhoncus dolor purus non enim praesent elementum
-              facilisis leo, vel{" "}
+              facilisis leo, vel{" "} */}
+              {fieldTrip}
             </div>
-          </div>
-        </div>
-      </section>
-      <section className="bio-sect">
-        <h2>Meet the minds behind the program</h2>
-        <h3>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore
-        </h3>
-        <div className="name-card-grid">
-          <div className="name-card">
-            <img
-              src="https://unsplash.it/200/200"
-              alt=""
-              className="face-img"
-            />
-            <p className="name">Name</p>
-          </div>
-          <div className="name-card">
-            <img
-              src="https://unsplash.it/200/200"
-              alt=""
-              className="face-img"
-            />
-            <p className="name">Name</p>
-          </div>
-          <div className="name-card">
-            <img
-              src="https://unsplash.it/200/200"
-              alt=""
-              className="face-img"
-            />
-            <p className="name">Name</p>
-          </div>
-          <div className="name-card">
-            <img
-              src="https://unsplash.it/200/200"
-              alt=""
-              className="face-img"
-            />
-            <p className="name">Name</p>
-          </div>
-          <div className="name-card">
-            <img
-              src="https://unsplash.it/200/200"
-              alt=""
-              className="face-img"
-            />
-            <p className="name">Name</p>
-          </div>
-          <div className="name-card">
-            <img
-              src="https://unsplash.it/200/200"
-              alt=""
-              className="face-img"
-            />
-            <p className="name">Name</p>
           </div>
         </div>
       </section>
