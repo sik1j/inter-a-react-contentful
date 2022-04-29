@@ -49,6 +49,7 @@ export const getStaticProps = async ({ params }) => {
 };
 
 function page({ page }) {
+  if (!page) return <div>Loading</div>;
   const { title, content } = page.fields;
 
   const Bold = ({ children }) => <p className="bold">{children}</p>;
