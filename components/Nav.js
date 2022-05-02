@@ -9,14 +9,17 @@ function Nav({ isNavOpen, setIsNavOpen, pages }) {
   };
 
   const renderLinks = () => {
-    console.log(pages);
-    return pages.map((page) => (
+    console.log(pages, Object.keys(pages));
+
+    const links = pages.map((page) => (
       <li key={page.sys.id}>
         <Link href={page.fields.slug}>
           <a>{page.fields.title}</a>
         </Link>
       </li>
     ));
+
+    return links;
   };
 
   return (
@@ -25,7 +28,14 @@ function Nav({ isNavOpen, setIsNavOpen, pages }) {
         <div className="logo-bg">
           <Link href={"/"}>Inter-A</Link>
         </div>
-        <ul className="nav-links slide">{renderLinks()}</ul>
+        <ul className="nav-links slide">
+          {renderLinks()}
+          <li key={"f3j2fojsafao23jf3"}>
+            <Link href={"/contact"}>
+              <a>Contact</a>
+            </Link>
+          </li>
+        </ul>
         <div onClick={handleNavClick} className={burgerClass}>
           <div className="line1"></div>
           <div className="line2"></div>

@@ -89,13 +89,14 @@ header {
 
 .doc-title {
   font-family: var(--ff-display);
-  width: calc(var(--col) * 2.5);
-  margin-inline: auto;
   letter-spacing: 0.1em;
   color: white;
-  border-top: 2px var(--clr-off-white) solid;
-  border-bottom: 2px var(--clr-off-white) solid;
-  padding-inline: 0.1em;
+  width: fit-content;
+  margin-top: 1.5rem;
+  margin-inline: auto;
+  padding: 0rem 1.5rem;
+  border-top: 2px white solid;
+  border-bottom: 2px white solid;
   font-size: 40px;
 }
 
@@ -680,6 +681,27 @@ footer {
     transform: translateX(0%);
   }
 
+  .doc-h1 {
+    margin-top: 1rem !important;
+    font-size: 50px !important;
+  }
+
+  .doc-title {
+    font-size: 30px;
+  }
+
+  .doc-h6 {
+    font-size: 16px !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .doc-h2 {
+    font-size: 40px !important;
+  }
+
+  .doc-p {
+    font-size: 14px !important;
+  }
 }
 
 
@@ -873,9 +895,10 @@ footer {
 .doc-h6 {
   /* text-align: center; */
   font-size: 20px;
-  max-width: 60ch;
+  max-width: 50ch;
   transform: scale(0.9);
   transform-origin: center;
+  margin-inline: auto;
   color: rgba(255, 235, 205, 0.89) !important;
   color: var(--clr-off-black);
   font-weight: 500;
@@ -929,3 +952,17 @@ footer {
   padding-right: 20vw;
   margin-bottom: 1rem;
 } */
+
+.max-width {
+  max-width: 1400px;
+  margin-inline: auto;
+}
+
+input {
+  font-family: var(--ff-spartan);
+  padding: 0.25rem;
+}
+
+textarea {
+  font-family: var(--ff-spartan);
+}

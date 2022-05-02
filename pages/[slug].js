@@ -36,7 +36,7 @@ export const getStaticProps = async ({ params }) => {
   if (items.length === 0) {
     return {
       redirect: {
-        desitnation: "/404",
+        destination: "/404",
         permanent: false,
       },
     };
@@ -97,37 +97,42 @@ function page({ page }) {
   console.log(page);
   return (
     <div className="text-white">
-      <div className="doc-wrapper">
+      {/* <div className="doc-wrapper">
         <div className="center">
           <div className="title">
             <div className="doc-title">{title}</div>
           </div>
           {documentToReactComponents(content, options)}
         </div>
+      </div> */}
+      <div className="doc-title">{title}</div>
+      <div className="doc-wrapper">
+        {documentToReactComponents(content, options)}
       </div>
       <style jsx>
         {`
           .title {
             text-align: center;
             width: 100vw;
-            margin-left: -20vw;
             margin-top: 2rem;
             margin-bottom: -2rem;
+            background-color: blue;
           }
           .doc-wrapper {
-            position: relative;
-            display: grid;
-            place-content: center;
+            width: 70%;
+            margin-inline: auto;
           }
           .center {
             max-width: 820px;
           }
-          .color-size {
-            color: #90d136 !important;
-            margin: 2rem 0;
-          }
           .text-white {
-            color: rgb(224, 224, 224);
+            color: white;
+          }
+
+          @media (max-width: 768px) {
+            .doc-wrapper {
+              width: 90%;
+            }
           }
         `}
       </style>
