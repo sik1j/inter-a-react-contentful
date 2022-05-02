@@ -1,6 +1,6 @@
 import React from "react";
 
-function apply() {
+export default function apply() {
   return (
     <div className="container-box">
       <div>
@@ -116,5 +116,3 @@ function apply() {
     </div>
   );
 }
-
-export default apply;

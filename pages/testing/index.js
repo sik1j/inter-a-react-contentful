@@ -1,4 +1,3 @@
-
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
@@ -32,9 +31,5 @@ export default function Home({ pages }) {
   } = pages[0].fields;
   console.log(heroSubText);
 
-  return (
-    <div>
-    Page
-    </div>
-  );
+  return <div>Page</div>;
 }

@@ -35,6 +35,11 @@ function Nav({ isNavOpen, setIsNavOpen, pages }) {
               <a>Contact</a>
             </Link>
           </li>
+          <li key={"f3j2fojsafao23j24"}>
+            <Link href={"/apply"}>
+              <a>Apply</a>
+            </Link>
+          </li>
         </ul>
         <div onClick={handleNavClick} className={burgerClass}>
           <div className="line1"></div>

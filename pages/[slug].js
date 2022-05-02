@@ -97,14 +97,6 @@ function page({ page }) {
   console.log(page);
   return (
     <div className="text-white">
-      {/* <div className="doc-wrapper">
-        <div className="center">
-          <div className="title">
-            <div className="doc-title">{title}</div>
-          </div>
-          {documentToReactComponents(content, options)}
-        </div>
-      </div> */}
       <div className="doc-title">{title}</div>
       <div className="doc-wrapper">
         {documentToReactComponents(content, options)}
@@ -119,6 +111,7 @@ function page({ page }) {
             background-color: blue;
           }
           .doc-wrapper {
+            max-width: 1000px;
             width: 70%;
             margin-inline: auto;
           }
