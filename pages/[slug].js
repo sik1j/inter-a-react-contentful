@@ -50,7 +50,8 @@ export const getStaticProps = async ({ params }) => {
 };
 
 function page({ page, res }) {
-  console.log(res.items, page);
+  console.log(res);
+  // console.log(res.items, page);
   if (!page) return <div>Loading</div>;
   const { title, content } = page.fields;
 
@@ -96,7 +97,6 @@ function page({ page, res }) {
     renderText: (text) => text.replace("!", "?"),
   };
 
-  console.log(page);
   return (
     <Layout pages={res.items}>
       <div className="text-white">
