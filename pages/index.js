@@ -44,14 +44,19 @@ export default function Home({ pages, otherEntry }) {
     isApplicationTime,
     peStudioArts,
     service,
+    studentOfTheMonthText,
+    studentOfTheMonthImage,
   } = landingPageObj.fields;
-  console.log(heroSubText);
+  console.log("landing texts:", landingPageObj.fields);
 
   return (
     <div>
       <Layout pages={navLinksArr}>
         <HeroLanding heroSubText={heroSubText} />
-        <StudentShowcase />
+        <StudentShowcase
+          text={studentOfTheMonthText}
+          img={`http:${studentOfTheMonthImage.fields.file.url}`}
+        />
         <InterAVid />
         <Family familySect={familySect} />
         <Features sectTexts={{ cpp, fieldTrip, peStudioArts, service }} />
