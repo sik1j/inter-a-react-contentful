@@ -9,7 +9,7 @@ function Nav({ isNavOpen, setIsNavOpen, pages }) {
   };
 
   const renderLinks = () => {
-    console.log(pages, Object.keys(pages));
+    // console.log(pages, Object.keys(pages));
 
     const links = pages.map((page) => (
       <li key={page.sys.id}>

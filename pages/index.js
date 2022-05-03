@@ -35,7 +35,7 @@ export default function Home({ pages, otherEntry }) {
       navLinksArr.push(obj);
     }
   }
-  console.log(navLinksArr, landingPageObj);
+  // console.log(navLinksArr, landingPageObj);
   const {
     heroSubText,
     familySect,
@@ -47,7 +47,7 @@ export default function Home({ pages, otherEntry }) {
     studentOfTheMonthText,
     studentOfTheMonthImage,
   } = landingPageObj.fields;
-  console.log("landing texts:", landingPageObj.fields);
+  // console.log("landing texts:", landingPageObj.fields);
 
   return (
     <div>
