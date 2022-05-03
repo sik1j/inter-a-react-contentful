@@ -1,8 +1,8 @@
 const StudentShowcase = () => {
   return (
     <section>
-    <div>Student of the month</div>
+      <div>Student of the month</div>
     </section>
-  )
-}
-export default StudentShowcase
+  );
+};
+export default StudentShowcase;
