@@ -1,4 +1,5 @@
 import React from "react";
+import Layout from "../components/Layout";
 import img from "next/image";
 import { createClient } from "contentful";
 import { BLOCKS, MARKS } from "@contentful/rich-text-types";
@@ -43,12 +44,13 @@ export const getStaticProps = async ({ params }) => {
   }
 
   return {
-    props: { page: items[0] },
+    props: { page: items[0], res },
     revalidate: 1,
   };
 };
 
-function page({ page }) {
+function page({ page, res }) {
+  console.log(res.items, page);
   if (!page) return <div>Loading</div>;
   const { title, content } = page.fields;
 
@@ -96,40 +98,42 @@ function page({ page }) {
 
   console.log(page);
   return (
-    <div className="text-white">
-      <div className="doc-title">{title}</div>
-      <div className="doc-wrapper">
-        {documentToReactComponents(content, options)}
-      </div>
-      <style jsx>
-        {`
-          .title {
-            text-align: center;
-            width: 100vw;
-            margin-top: 2rem;
-            margin-bottom: -2rem;
-            background-color: blue;
-          }
-          .doc-wrapper {
-            max-width: 1000px;
-            width: 70%;
-            margin-inline: auto;
-          }
-          .center {
-            max-width: 820px;
-          }
-          .text-white {
-            color: white;
-          }
-
-          @media (max-width: 768px) {
-            .doc-wrapper {
-              width: 90%;
+    <Layout pages={res.items}>
+      <div className="text-white">
+        <div className="doc-title">{title}</div>
+        <div className="doc-wrapper">
+          {documentToReactComponents(content, options)}
+        </div>
+        <style jsx>
+          {`
+            .title {
+              text-align: center;
+              width: 100vw;
+              margin-top: 2rem;
+              margin-bottom: -2rem;
+              background-color: blue;
             }
-          }
-        `}
-      </style>
-    </div>
+            .doc-wrapper {
+              max-width: 1000px;
+              width: 70%;
+              margin-inline: auto;
+            }
+            .center {
+              max-width: 820px;
+            }
+            .text-white {
+              color: white;
+            }
+
+            @media (max-width: 768px) {
+              .doc-wrapper {
+                width: 90%;
+              }
+            }
+          `}
+        </style>
+      </div>
+    </Layout>
   );
 }
 

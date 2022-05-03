@@ -28,7 +28,8 @@ export default function Family({ familySect }) {
           max-width: 1400px;
           position: relative;
           margin-inline: auto;
-        }
+         overflow: hidden;
+
         .backdrop {
           background-color: inherit;
           position: absolute;

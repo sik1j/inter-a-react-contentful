@@ -7,6 +7,8 @@ import HeroLanding from "../components/page_component/HeroLanding";
 import InterAVid from "../components/page_component/InterAVid";
 import Family from "../components/page_component/Family";
 import Features from "../components/page_component/Features";
+import Layout from "../components/Layout";
+import StudentShowcase from "../components/page_component/StudentShowcase";
 
 export const getStaticProps = async () => {
   const client = createClient({
@@ -14,7 +16,7 @@ export const getStaticProps = async () => {
     accessToken: process.env.CONTENTFUL_ACCESS_KEY,
   });
 
-  const response = await client.getEntries({ content_type: "landingPage" });
+  const response = await client.getEntries();
 
   return {
     props: { pages: response.items },
@@ -22,8 +24,18 @@ export const getStaticProps = async () => {
   };
 };
 
-export default function Home({ pages }) {
-  console.log(pages);
+export default function Home({ pages, otherEntry }) {
+  let landingPageObj;
+  let navLinksArr = [];
+  for (let i = 0; i < pages.length; i++) {
+    let obj = pages[i];
+    if (obj.sys.contentType.sys.id == "landingPage") {
+      landingPageObj = obj;
+    } else {
+      navLinksArr.push(obj);
+    }
+  }
+  console.log(navLinksArr, landingPageObj);
   const {
     heroSubText,
     familySect,
@@ -32,15 +44,23 @@ export default function Home({ pages }) {
     isApplicationTime,
     peStudioArts,
     service,
-  } = pages[0].fields;
-  console.log(heroSubText);
+    studentOfTheMonthText,
+    studentOfTheMonthImage,
+  } = landingPageObj.fields;
+  console.log("landing texts:", landingPageObj.fields);
 
   return (
     <div>
-      <HeroLanding heroSubText={heroSubText} />
-      <InterAVid />
-      <Family familySect={familySect} />
-      <Features sectTexts={{ cpp, fieldTrip, peStudioArts, service }} />
+      <Layout pages={navLinksArr}>
+        <HeroLanding heroSubText={heroSubText} />
+        <StudentShowcase
+          text={studentOfTheMonthText}
+          img={`http:${studentOfTheMonthImage.fields.file.url}`}
+        />
+        <InterAVid />
+        <Family familySect={familySect} />
+        <Features sectTexts={{ cpp, fieldTrip, peStudioArts, service }} />
+      </Layout>
     </div>
   );
 }

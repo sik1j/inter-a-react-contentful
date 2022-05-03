@@ -205,9 +205,8 @@ nav {
   background-color: var(--clr-off-white);
   width: 100vw;
   aspect-ratio: 16/9;
-  margin-block: 2rem;
   box-sizing: content-box;
-  padding-block: 3rem;
+  padding-block: 4rem;
   display: grid;
   place-content: center;
 }
@@ -440,7 +439,16 @@ footer {
   justify-self: end;
 }
 
+.content {
+  padding-left: 5vw;
+  max-width: 1400px;
+  padding-right: 5vw;
+  margin-inline: auto;
+}
+
 @media (min-width: 1300px) {
+
+
   .hero-text {
     font-size: 11rem;
   }
@@ -455,6 +463,10 @@ footer {
 }
 
 @media (max-width: 999px) {
+  .content {
+    padding-inline: 10vw;
+  }
+
   .nav-links {
     width: calc(var(--col) * 7.5);
   }
